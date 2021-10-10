@@ -46,6 +46,7 @@ bot.command("end", async (ctx) => {
   const pollResult = await ctx.stopPoll(poll.message_id);
   const winner = getWinnerUsername(pollResult, db);
   ctx.reply(`@${winner} получает титул короля мемов`);
+  db = [];
 });
 
 bot.on("message", (ctx) => {
