@@ -19,21 +19,13 @@ bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
 });
 
-bot.start((ctx) => ctx.reply("hello bro"));
-// bot.on("text", (ctx) => {
-//   console.log(ctx.message);
-//   if (ctx.message.chat.type === "group") ctx.reply();
-// });
-
-// bot.on("message", (ctx) =>
-//   ctx.replyWithMediaGroup([
-//     {
-//       media: ctx.message.photo[ctx.message.photo.length - 1].file_id,
-//       caption: "From file_id",
-//       type: "photo",
-//     },
-//   ])
-// );
+bot.start((ctx) =>
+  ctx.reply(
+    "Привет, скинь мне мем (обязательно картинкой " +
+      "и только одной фотографией за одно сообщение)." +
+      "каждая новая картинка которую ты скинешь заменяет ту что ты скинул ранее."
+  )
+);
 
 bot.command("begin", async (ctx) => {
   const message = ctx.message;
